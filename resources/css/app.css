@@ -1,0 +1,1403 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Общие стили */
+body {
+    font-family: 'Roboto', 'Nunito', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Переменные для основных цветов */
+:root {
+    --primary: #FF6B00;
+    --primary-dark: #E65100;
+    --secondary: #424242;
+    --light-gray: #f5f5f5;
+    --dark-gray: #303030;
+    --accent: #FFB74D;
+}
+
+/* Переопределение стандартных Bootstrap классов */
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.page-link {
+    color: var(--primary);
+}
+
+.page-link:hover {
+    color: var(--primary-dark);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--primary) !important;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--primary) !important;
+}
+
+.nav-link {
+    color: var(--primary);
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--primary-dark);
+}
+
+/* Стили для hero-секции */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/images/backgrounds/construction-bg.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--primary),
+        var(--primary) 30px,
+        var(--secondary) 30px,
+        var(--secondary) 60px
+    );
+}
+
+/* Обновленные стили для hero-секции */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    color: white;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+    opacity: 0.8; /* Фиксированная непрозрачность */
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-highlight {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.hero-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--primary);
+    z-index: -1;
+    opacity: 0.3;
+    transform: translateY(4px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-cta .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.hero-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.hero-image-grid {
+    position: relative;
+    height: 500px;
+}
+
+.hero-image-main {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    right: 0;
+    top: 50px;
+    z-index: 2;
+    border: 8px solid white;
+    overflow: hidden;
+}
+
+.hero-image-secondary {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    left: 0;
+    bottom: 80px;
+    z-index: 3;
+    border: 8px solid white;
+    overflow: hidden;
+}
+
+.hero-image-main img, .hero-image-secondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-floating-card {
+    position: absolute;
+    right: -20px;
+    bottom: 40px;
+    z-index: 4;
+    max-width: 220px;
+}
+
+.hero-scroll-down {
+    animation: bounce 2s infinite;
+}
+
+.hero-brands {
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+    }
+    .hero-cta {
+        justify-content: center;
+    }
+    .hero-stats {
+        justify-content: center;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+/* Секции */
+.services-section, .testimonials-section, .contact-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary);
+    margin: 15px auto 0;
+}
+
+/* Карточки */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 0; /* Более угловатый вид */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--primary);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* Кнопки */
+.btn {
+    border-radius: 0; /* Квадратные кнопки для строительной тематики */
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* Квиз */
+.quiz-section {
+    background-color: var(--light-gray);
+    padding: 80px 0;
+    position: relative;
+}
+
+.quiz-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-image: repeating-linear-gradient(
+        to right,
+        var(--primary),
+        var(--primary) 40px,
+        transparent 40px,
+        transparent 80px
+    );
+}
+
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+    border-top: 5px solid var(--primary);
+}
+
+.quiz-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 30px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: cette ligne de; }
+    to { opacity: 1; }
+}
+
+/* Отступы между кнопками */
+.next-step, .prev-step {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+/* Стили для модального окна квиза */
+#quizModal .modal-content {
+    overflow: hidden;
+    border-radius: 0;
+}
+
+#quizModal .modal-header {
+    padding: 20px 30px;
+}
+
+#quizModal .modal-dialog {
+    max-width: 90%;
+}
+
+@media (min-width: 992px) {
+    #quizModal .modal-dialog {
+        max-width: 1200px;
+    }
+}
+
+.quiz-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-step-image {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.quiz-step-image.active {
+    display: block;
+}
+
+.quiz-step-image img {
+    object-position: center;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.image-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.image-overlay p {
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* Улучшенные стили для шагов квиза */
+.form-check.card {
+    cursor: pointer;
+    border: 1px solid #e9e9e9;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.form-check.card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.form-check-input:checked + .form-check-label .form-check.card,
+.form-check.card:has(.form-check-input:checked) {
+    border-color: var(--primary);
+    background-color: rgba(255, 107, 0, 0.05);
+}
+
+.quiz-area-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 107, 0, 0.1);
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+        text-align: center;
+    }
+    
+    .hero-section img {
+        margin-top: 30px;
+    }
+}
+
+/* SEO оптимизация - скрытые заголовки для поисковиков */
+.seo-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Рабочий процесс */
+.workflow-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: var(--secondary);
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 0;
+    position: relative;
+    border: 3px solid var(--primary);
+}
+
+.workflow-step:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary);
+    z-index: -1;
+}
+
+/* Аватары отзывов */
+.testimonial-avatar img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    padding: 3px;
+}
+
+/* Социальные иконки */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    color: white !important;
+    border-radius: 0;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Стили для навбара */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar.scrolled {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-gray) !important;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--secondary) !important;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+}
+
+.navbar-nav .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover:after {
+    width: 50%;
+}
+
+/* Стили для футера */
+footer {
+    background-color: var(--dark-gray);
+    color: #f8f9fa;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: var(--primary);
+}
+
+footer a {
+    transition: color 0.3s ease;
+    color: #e9ecef !important;
+}
+
+footer a:hover {
+    color: var(--primary) !important;
+    text-decoration: none;
+}
+
+/* Стили для FAQ */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(255, 107, 0, 0.1);
+    color: var(--primary);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(255, 107, 0, 0.25);
+}
+
+.accordion-item {
+    border-left: 3px solid var(--primary);
+}
+
+/* Дополнительные стили для строительной тематики */
+.bg-construction {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+/* Стилизация форм */
+.form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* Стиль списков в карточках услуг */
+.list-unstyled li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+/* Улучшенные стилизации преимуществ */
+.advantage-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-icon::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 107, 0, 0.1);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Стили для контактной формы */
+.contact-form {
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary);
+}
+
+/* Стили для иконок услуг */
+.service-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 107, 0, 0.1);
+    border-right: 3px solid var(--primary);
+}
+
+/* Стили для Swiper */
+.services-swiper {
+    padding-bottom: 50px;
+}
+
+.services-swiper .swiper-slide {
+    height: auto;
+    padding: 10px;
+}
+
+.services-swiper .card {
+    height: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary) !important;
+}
+
+/* Стили для карточек стилей интерьера */
+.style-card {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.style-card:hover {
+    transform: translateY(-10px);
+}
+
+.style-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.style-image img {
+    height: 250px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.style-card:hover .style-image img {
+    transform: scale(1.05);
+}
+
+.style-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.style-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.style-feature {
+    background-color: rgba(255, 107, 0, 0.1);
+    color: var(--primary);
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 0;
+    font-weight: 500;
+}
+
+.style-preview {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+.style-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.form-check.card:hover .style-preview img {
+    transform: scale(1.05);
+}
+
+/* Стили для галереи проектов */
+.projects-gallery {
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 20px;
+}
+
+.project-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.project-slide:hover img {
+    transform: scale(1.05);
+}
+
+.mini-projects-swiper .swiper-slide {
+    width: 280px;
+}
+
+@media (max-width: 768px) {
+    .projects-swiper {
+        height: 50vh;
+    }
+    
+    .project-caption h3 {
+        font-size: 1.5rem;
+    }
+    
+    .project-caption p {
+        font-size: 1rem;
+    }
+    
+    .mini-project-item {
+        height: 150px;
+    }
+}
+
+/* Стили для доступности */
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 1050;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.keyboard-focus {
+    outline: 3px solid #0d6efd !important;
+    outline-offset: 2px !important;
+}
+
+/* Повышение контраста при необходимости */
+.text-muted {
+    color: #6c757d !important; /* Убедитесь, что этот цвет имеет достаточный контраст с фоном */
+}
+
+/* Улучшение фокуса на элементах форм */
+input:focus, textarea:focus, select:focus, button:focus, a:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+/* Доступный контраст для ошибок */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    color: #b30000 !important; /* Более контрастный красный */
+    font-weight: bold;
+}
+
+/* Улучшение читаемости текста */
+body {
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+/* Доступный фокус для карточек и интерактивных элементов */
+.card:focus-within {
+    box-shadow: 0 0 0 3px #0d6efd;
+}
+
+/* ARIA-live регионы для динамического контента */
+[aria-live="polite"], 
+[aria-live="assertive"] {
+    min-height: 1px;
+}
+
+/* Основные стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Адаптивные стили для мобильных устройств */
+
+/* Extra малые устройства (телефоны, 576px и меньше) */
+@media (max-width: 575.98px) {
+    h1, .h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2, .h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3, .h3 {
+        font-size: 1.25rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Корректировка отступов для мобильных устройств */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .my-5 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Адаптация кнопок */
+    .btn {
+        white-space: normal;
+        word-wrap: break-word;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .btn-lg {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Модификация отступов контейнеров */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Мобильная настройка для карточек */
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Малые устройства (планшеты, 768px и меньше) */
+@media (max-width: 767.98px) {
+    /* Hero секция для планшетов */
+    .hero-content {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Настройки для сетки услуг */
+    .services-section .swiper-slide {
+        width: 100%;
+    }
+    
+    /* Отступы для FAQ */
+    .accordion-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Адаптация квиза */
+    .quiz-step {
+        padding: 1rem;
+    }
+}
+
+/* Средние устройства (планшеты, 991px и меньше) */
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Адаптация секций преимуществ */
+    .advantage-icon {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Оптимизация для сенсорных устройств */
+@media (hover: none) {
+    /* Увеличиваем область нажатия */
+    .nav-link, .btn, .accordion-button {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Убираем ховер эффекты */
+    a:hover, button:hover {
+        transition: none !important;
+    }
+}
+
+/* Стили для адаптивных изображений */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Адаптивное видео */
+.hero-bg-video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Высота героя на мобильных */
+@media (max-width: 767.98px) {
+    .min-vh-100 {
+        min-height: 80vh !important;
+    }
+}
+
+/* Улучшения для элементов форм */
+input, select, textarea, button, .form-control {
+    font-size: 16px !important; /* Предотвращает масштабирование на iOS */
+}
+
+/* Адаптация квиза под мобильные */
+.quiz-container .form-check-card {
+    height: auto !important;
+}
+
+/* Адаптация для карты */
+.map-container {
+    height: 300px;
+}
+
+/* Фиксированные элементы на мобильных устройствах */
+@media (max-width: 767.98px) {
+    .accessibility-controls {
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    .accessibility-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .accessibility-menu {
+        width: 230px;
+    }
+}
+
+/* Стили для фиксированной кнопки квиза на мобильных устройствах */
+.mobile-quiz-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .mobile-quiz-btn {
+        display: block;
+    }
+    
+    .mobile-quiz-btn .btn {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mobile-quiz-btn .bi {
+        font-size: 1.8rem;
+    }
+}
+
+/* Исправления для модальных окон */
+body.modal-open {
+    overflow: hidden;
+    padding-right: 0 !important;
+}
+
+.modal {
+    padding-right: 0 !important;
+}
+
+/* Исправление для скрытия backdrop при закрытии */
+.modal-backdrop.fade {
+    transition: opacity 0.2s linear;
+}
+
+/* Улучшение доступности модальных окон - видимый фокус */
+.modal:focus {
+    outline: none;
+}
+
+.modal-content:focus {
+    outline: none;
+}
+
+/* Мобильные улучшения для backdrop */
+@media (max-width: 767.98px) {
+    .modal-backdrop {
+        /* Фиксированная позиция для мобильных */
+        position: fixed;
+    }
+}
+
+/* Стили для tooltips */
+.tooltip {
+    pointer-events: none;
+    z-index: 1060;
+}
+
+.tooltip .tooltip-inner {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    max-width: 200px;
+}
+
+/* Стили для мобильной адаптации квиза */
+.quiz-mobile-progress {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding-top: 8px;
+}
+
+.quiz-steps-indicator {
+    margin-bottom: 8px;
+}
+
+.quiz-step-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.quiz-step-dot.active {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+/* Адаптация размеров для мобильных устройств */
+@media (max-width: 767.98px) {
+    /* Улучшенные стили для квиза на мобильных */
+    #quizModal .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    
+    #quizModal .modal-content {
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    #quizModal .modal-body {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0;
+    }
+    
+    .mobile-compact-heading {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .quiz-icon-mobile {
+        font-size: 1.5rem !important;
+    }
+    
+    .quiz-area-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bs-primary);
+        color: white;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    
+    .style-preview {
+        height: 80px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+    
+    .style-preview img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+    
+    .btn-mobile-adapt {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .mobile-card {
+        padding: 8px !important;
+        border: 1px solid #dee2e6;
+        transition: all 0.2s ease;
+        touch-action: manipulation;
+    }
+    
+    .mobile-card:active {
+        transform: scale(0.98);
+    }
+    
+    .mobile-option-text {
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    
+    /* Улучшенный выбор карточек на мобильных */
+    .form-check.card.selected-card,
+    .form-check.card:has(input:checked) {
+        border-color: var(--bs-primary);
+        background-color: rgba(var(--bs-primary-rgb), 0.05);
+        box-shadow: 0 0 0 1px var(--bs-primary);
+    }
+    
+    /* Компактные формы для мобильных */
+    #quizModal .form-label {
+        margin-bottom: 0.25rem;
+    }
+    
+    #quizModal .form-control,
+    #quizModal .input-group-text {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    #quizModal .form-check {
+        margin-bottom: 0.25rem;
+    }
+    
+    #quizModal .quiz-navigation {
+        padding: 0.75rem 0 1rem;
+        margin-top: 0.75rem !important;
+    }
+    
+    /* Фикс для прокрутки модального окна */
+    .modal-fullscreen-sm-down {
+        padding-right: 0 !important;
+    }
+    
+    .modal-fullscreen-sm-down .modal-content {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Плавный переход между шагами */
+.quiz-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.quiz-step.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Фикс для iOS */
+@supports (-webkit-touch-callout: none) {
+    .modal-body {
+        padding-bottom: 44px !important;
+    }
+    
+    /* Фикс для нижней полосы на iPhone X и новее */
+    .modal-fullscreen-sm-down .modal-content {
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+}
+
+/* Общие стили для квиза */
+.quiz-navigation {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding-top: 10px;
+    margin-top: 1rem !important;
+    z-index: 5;
+}
+
+/* Плавная анимация переходов между шагами */
+.quiz-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.quiz-step.active {
+    display: block;
+    opacity: 1;
+}
